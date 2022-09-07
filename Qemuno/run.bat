@@ -1,0 +1,1 @@
+qemu-system-x86_64 -kernel vmlinuz64 -initrd corepure64.gz -m 1024 -hda qemuno.vhd -append "home=sda opt=sda tce=sda" -net nic,model=e1000,macaddr=52:54:00:12:34:56 -net user,hostfwd=tcp:127.0.0.1:9000-:5000 --accel whpx

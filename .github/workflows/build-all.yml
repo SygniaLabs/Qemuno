@@ -1,0 +1,40 @@
+name: Build All docker images
+
+on: workflow_dispatch
+
+jobs:
+  nmap:
+    uses: ./.github/workflows/build-nmap.yml
+    secrets: inherit
+    
+  impacket:
+    uses: ./.github/workflows/build-impacket.yml
+    secrets: inherit
+          
+  gowitness:
+    uses: ./.github/workflows/build-gowitness.yml
+    secrets: inherit
+          
+  sharphound:
+    uses: ./.github/workflows/build-sharphound.yml
+    secrets: inherit
+          
+  crackmapexec:
+    uses: ./.github/workflows/build-crackmapexec.yml
+    secrets: inherit
+          
+  certipy:
+    uses: ./.github/workflows/build-certipy.yml
+    secrets: inherit
+  
+  dirsearch:
+    uses: ./.github/workflows/build-dirsearch.yml
+    secrets: inherit
+
+  iis_shortname_scanner:
+    uses: ./.github/workflows/build-iis-shortname-scanner.yml
+    secrets: inherit
+    
+  qemuno-ui:
+    uses: ./.github/workflows/build-qemuno-ui.yml
+    secrets: inherit

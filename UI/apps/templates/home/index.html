@@ -1,0 +1,79 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} index {% endblock %}
+
+{% block stylesheets %}
+<link href="/static/assets/css/loading.css" rel="stylesheet"/>{% endblock stylesheets %}
+
+
+{% block content %}
+
+<div class="container-fluid py-4">
+
+    <div class="row">
+        <div class="col-8">
+            <div class="card my-0">
+                <div class="loader" id="loading" style="display:none">
+                    <div></div>
+                </div>
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                        <h5 class="text-white text-capitalize ps-3">Available Docker Images</h5>
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center justify-content-center mb-0">
+                            <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                    &#160;&#160;&#160;count: {{count}}
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for image in names %}
+                            <tr>
+                                <td>
+                                    <div class="d-flex px-2"><img src="/static/assets/img/docker.png"
+                                                                  class="avatar avatar-sm rounded-circle me-2">
+                                        <div class="my-auto"><h6 class="mb-0 text-sm">
+                                            <a href="https://sygnialabs.github.io/DROPS/?utm_source=qemuno&utm_medium=qemuno&tool={{image}}"
+                                               target="_blank">
+                                                {{image}}</a>
+                                        </h6></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    {% if image in not_local %}
+
+                                    <form action="{{ url_for('home_blueprint.route_default') }}" method="POST"
+                                          enctype="multipart/form-data">
+                                        <input name={{image}} type="hidden" size="90" ,
+                                               value="docker pull nm10pt/{{image}}"/>
+                                        <button type="submit" name="submit_download" value="submit_value"
+                                                class="link-button" onclick="loading()">
+                                            download
+                                        </button>
+                                    </form>
+                                    {% else %}
+                                    <span>&#9989;</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="/static/assets/js/loading.js"></script>
+{% endblock javascripts %}

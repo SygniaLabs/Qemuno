@@ -1,0 +1,3 @@
+    function loading(){
+        $("#loading").show()
+    };
