@@ -1,0 +1,92 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} File Upload {% endblock %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<form action="{{ url_for('home_blueprint.upload') }}" method="POST" enctype="multipart/form-data">
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-6">
+                <div class="card my-0">
+                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                            <h5 class="text-white text-capitalize ps-3">Upload</h5>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center justify-content-center mb-0">
+                                <thead>
+                                <tr>
+                                    <div class="d-flex px-4">
+                                        <div class="my-auto">
+                                            <h6 class="mb-0 text-sm">
+                                                <h6>Upload files to:</h6>
+                                                <input name="upload_path" type="text" placeholder="Default /tmp"
+                                                       size="30"/><br><br>
+                                                <h6>Choose files to upload:</h6>
+                                                <div id="upload_results_element">
+                                                    <input type="file" name="file" multiple="true"/><br><br>
+                                                </div>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container-fluid py-4">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card my-4">
+                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                                    <h5 class="text-white text-capitalize ps-3">Download</h5>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 pb-2">
+                                <div class="table-responsive p-0">
+                                    <table class="table align-items-center justify-content-center mb-0">
+                                        <thead>
+                                        <tr>
+                                            <div class="d-flex px-4">
+                                                <div class="my-auto">
+                                                    <h6 class="mb-0 text-sm">
+                                                        <h6>Download file (as path):</h6>
+                                                        <input name="download_path" type="text" size="30" placeholder="e.g. /home/tc/file.txt"/><br><br>
+
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <div class="row">
+                    <div class="col-8">
+
+                            <input type="submit" value="Submit"/>
+
+                    </div>
+                    </div>
+                </div>
+</form>
+</div>
+
+
+{% endblock content %}
+
+{% block javascripts %}{% endblock javascripts %}

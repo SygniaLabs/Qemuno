@@ -1,0 +1,65 @@
+
+body {
+    font-family: "Roboto", sands-serif;
+}
+
+.shell {
+    width: 1100px;
+    height: 600px;
+    border: 2px solid #000;
+    color: #ccc;
+    line-height: 300px;
+    text-align: left;
+    background-color: #000;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    overflow-y: scroll;
+    line-height: 1.5;
+
+}
+
+.tab2 {
+    tab-size: 20;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.loader{
+    overflow: hidden;
+    position: relative;
+}
+.loader>div{
+    height: 100px;
+    width: 100px;
+    border: 15px solid #45474b;
+    border-top-color: #2a88e6;
+    position: fixed;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    animation: spin 1.5s infinite linear;
+}
+@keyframes spin{
+    100%{
+        transform: rotate(360deg);
+    }
+}

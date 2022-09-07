@@ -1,0 +1,42 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Shell {% endblock %}
+
+
+{% block stylesheets %}
+<link href="/static/assets/css/loading.css" rel="stylesheet"/>{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="container-fluid py-4">
+
+    <div class="row mb-4">
+        <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+            <div class="content">
+                <div class="shell" id="shell2">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    {{pwd}} > {{command}}<br>
+                    {% autoescape false %} {{output | replace('
+                    <DIR>', '') }} {% endautoescape %}
+                        {% autoescape false %} {{err | replace('
+                        <DIR>', '') }} {% endautoescape %}
+                            <div class="loader" id="loading" style="display:none">
+                                <div></div>
+                            </div>
+                </div>
+                <br>
+                <form action="/shell" method="POST">
+                    <input name="command" type="text" size="90" placeholder="Enter command here"/><br><br>
+                    <input name="command_submit" type="submit" size="90" onclick="loading()"
+                           style="display:none"/><br><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block javascripts %}
+<script src="/static/assets/js/loading.js"></script>
+{% endblock javascripts %}
