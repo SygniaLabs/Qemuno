@@ -6,7 +6,7 @@ import subprocess
 def names_and_count():
 
     # get request
-    page = urllib.request.urlopen('https://hub.docker.com/v2/repositories/nm10pt').read()
+    page = urllib.request.urlopen('https://hub.docker.com/v2/repositories/sygnialabs').read()
     page = page.decode()
 
     # str to dict

@@ -22,5 +22,5 @@ def check_docker(command):
     names, count, local_str = tools_parser.names_and_count()
     for i in range(len(names)):
         if command.startswith(names[i]):
-            command = "docker run --rm -v /qemuno:/qemuno nm10pt/" + command
+            command = "docker run --rm -v /qemuno:/qemuno sygnialabs/" + command
     return command
